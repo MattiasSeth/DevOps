@@ -35,3 +35,9 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Ignore .env files
+.env
+
+# Ignore XML files (if needed)
+*.xml

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Odd or Even</title>
+</head>
+<body>
+<h1><span th:text="${randomInt}"></span></h1>
+
+<form action="/submitGuess" method="post">
+    <input type="hidden" name="randomInt" th:value="${randomInt}" />
+    <button type="submit" name="guess" value="even">Even</button>
+    <button type="submit" name="guess" value="odd">Odd</button>
+</form>
+
+<h2>Current Score: <span th:text="${score}"></span></h2>
+
+<div th:if="${result != null}">
+    <h3 th:text="${result}"></h3>
+</div>
+</body>
+</html>
