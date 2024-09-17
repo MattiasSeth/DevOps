@@ -2,20 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Odd or Even</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<h1><span th:text="${randomInt}"></span></h1>
-
-<form action="/submitGuess" method="post">
-    <input type="hidden" name="randomInt" th:value="${randomInt}" />
-    <button type="submit" name="guess" value="even">Even</button>
-    <button type="submit" name="guess" value="odd">Odd</button>
-</form>
-
-<h2>Current Score: <span th:text="${score}"></span></h2>
-
-<div th:if="${result != null}">
-    <h3 th:text="${result}"></h3>
+<div class="mx-auto p-5" style="width: 800px;">
+    <div>
+        <span class="fst-italic p-5">Udda eller jämnt</span>-
+        <span class="fst-italic p-5"><a href="/" class="link-offset-2 link-underline link-underline-opacity-0">Tillbaka</a></span>
+    </div>
+    <div class="mx-auto pt-5" style="width: 400px;">
+        <form action="/submitGuess" method="post">
+            <div>
+                <input type="hidden" name="randomInt" th:value="${randomInt}" />
+                <span class="fst-italic p-3 border border-info  m-1" th:text="${randomInt}"></span>
+                <button type="submit" name="guess" value="even" class="fst-italic m-4">Udda</button>
+                <button type="submit" name="guess" value="odd" class="fst-italic m-1">Jämnt</button>
+            </div>
+        </form>
+    </div>
+    <div th:if="${result != null}">
+        <h2 class="fst-italic p-1">Totalt antal rätt svar: <span th:text="${score}"></span></h2>
+    </div>
 </div>
+
+
+
+
+
+
+
 </body>
 </html>
