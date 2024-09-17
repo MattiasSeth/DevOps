@@ -10,14 +10,12 @@
         <span class="fst-italic p-5">Udda eller jämnt</span>-
         <span class="fst-italic p-5"><a href="/" class="link-offset-2 link-underline link-underline-opacity-0">Tillbaka</a></span>
     </div>
-    <div class="mx-auto pt-5" style="width: 400px;">
+    <div class="mx-auto pt-5" style="width: 600px;">
         <form action="/submitGuess" method="post">
-            <div>
-                <input type="hidden" name="randomInt" th:value="${randomInt}" />
-                <span class="fst-italic p-3 border border-info  m-1" th:text="${randomInt}"></span>
-                <button type="submit" name="guess" value="even" class="fst-italic m-4">Udda</button>
-                <button type="submit" name="guess" value="odd" class="fst-italic m-1">Jämnt</button>
-            </div>
+            <input type="hidden" name="randomInt" th:value="${randomInt}" />
+            <span class="fst-italic p-3 border border-info  m-1" th:text="${randomInt}"></span>
+            <button type="submit" name="guess" value="even" class="fst-italic m-4">Udda</button>
+            <button type="submit" name="guess" value="odd" class="fst-italic m-1">Jämnt</button>
         </form>
     </div>
     <div th:if="${result != null}">
