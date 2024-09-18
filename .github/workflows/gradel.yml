@@ -4,15 +4,13 @@ on:
   push:
     branches: [ "master" ]
 
-  pull_request_target:
+  pull_request:
     branches: [ "master" ]
 
 env:
   build-number: ${{ github.run_number }}
 
-permissions:
-  contents: write
-  issues: write
+permissions: write-all
 
 jobs:
   build:
