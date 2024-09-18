@@ -21,7 +21,7 @@ public class EvenOrOddController {
         model.addAttribute("score", session.getAttribute("score"));
         return "oddoreven";
     }
-
+//Test temp test temp
     @PostMapping("/submitGuess")
     public String submitGuess(@RequestParam("guess") String guess,
                               @RequestParam("randomInt") int randomInt,
