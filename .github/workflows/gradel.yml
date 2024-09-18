@@ -10,8 +10,7 @@ on:
 env:
   build-number: ${{ github.run_number }}
 
-permissions:
-  contents: write
+permissions: write-all
 
 jobs:
   build:
