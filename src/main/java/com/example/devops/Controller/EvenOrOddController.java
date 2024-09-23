@@ -53,5 +53,4 @@ public class EvenOrOddController {
         return random.nextInt(10000) + 1;
     }
 
-
 }
