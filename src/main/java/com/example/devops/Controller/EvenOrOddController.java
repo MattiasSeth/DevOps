@@ -1,5 +1,6 @@
 package com.example.devops.Controller;
 
+import com.example.devops.Service.EvenOrOddService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,14 +8,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.servlet.http.HttpSession;
 
-import java.util.Random;
-
 @Controller
 public class EvenOrOddController {
 
+    private final EvenOrOddService evenOrOddService;
+
+    public EvenOrOddController(EvenOrOddService evenOrOddService){
+        this.evenOrOddService = evenOrOddService;
+    }
+
     @GetMapping("/oddOrEven")
     public String oddOrEven(Model model, HttpSession session) {
-        int randomInt = randomInteger();
+        int randomInt = evenOrOddService.randomInteger();
         model.addAttribute("randomInt", randomInt);
         session.setAttribute("score", 0);
 
@@ -26,9 +31,10 @@ public class EvenOrOddController {
     public String submitGuess(@RequestParam("guess") String guess,
                               @RequestParam("randomInt") int randomInt,
                               Model model, HttpSession session) {
-        boolean isCorrect = checkGuess(guess, randomInt);
 
+        boolean isCorrect = evenOrOddService.checkGuess(guess, randomInt);
         Integer score = (Integer) session.getAttribute("score");
+
         if (isCorrect) {
             score += 1;
             model.addAttribute("result", "Correct!");
@@ -38,19 +44,9 @@ public class EvenOrOddController {
 
         session.setAttribute("score", score);
         model.addAttribute("score", score);
-        int newRandomInt = randomInteger();
+        int newRandomInt = evenOrOddService.randomInteger();
         model.addAttribute("randomInt", newRandomInt);
         return "oddoreven";
-    }
-
-    public boolean checkGuess (String guess, int randomInt){
-        boolean checkEven = randomInt % 2 == 0;
-        return checkEven && guess.equals("even") || (!checkEven && guess.equals("odd"));
-    }
-
-    public int randomInteger() {
-        Random random = new Random();
-        return random.nextInt(10000) + 1;
     }
 
 }

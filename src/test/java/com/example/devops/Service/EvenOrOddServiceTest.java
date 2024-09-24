@@ -1,41 +1,43 @@
-package com.example.devops.Controller;
+package com.example.devops.Service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class EvenOrOddControllerTest {
+class EvenOrOddServiceTest {
 
-    private EvenOrOddController controller;
+    private EvenOrOddService service;
 
     @BeforeEach
     void setUp() {
-        controller = new EvenOrOddController();
+        service = new EvenOrOddService();
     }
 
     @Test
     void testCheckGuessEven() {
-        assertTrue(controller.checkGuess("even", 2));
+        assertTrue(service.checkGuess("even", 2));
     }
 
     @Test
     void testCheckGuessOdd() {
-        assertTrue(controller.checkGuess("odd", 3));
+        assertTrue(service.checkGuess("odd", 3));
     }
 
     @Test
     void testCheckGuessWrongEven() {
-        assertFalse(controller.checkGuess("odd", 4));
+        assertFalse(service.checkGuess("odd", 4));
     }
 
     @Test
     void testCheckGuessWrongOdd() {
-        assertFalse(controller.checkGuess("even", 5));
+        assertFalse(service.checkGuess("even", 5));
     }
 
     @Test
     void testRandomIntegerInRange() {
-        int randomInt = controller.randomInteger();
+        int randomInt = service.randomInteger();
         assertTrue(randomInt >= 1 && randomInt <= 10000);
     }
+
 }

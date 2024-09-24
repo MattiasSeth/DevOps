@@ -24,7 +24,6 @@ public class PlusMinusService {
         }
         else {
             correctAnswer = num1 - num2;
-
         }
         answers.add(correctAnswer);
 
