@@ -1,7 +1,7 @@
 package com.example.devops.Controller;
 
-
 import com.example.devops.Service.PlusMinusService;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -28,11 +28,19 @@ class MinusControllerTest {
     @InjectMocks
     private MinusController minusController;
 
+    private AutoCloseable mocks;
+
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.openMocks(this);
+        mocks = MockitoAnnotations.openMocks(this);
     }
 
+    @AfterEach
+    public void tearDown() throws Exception {
+        if (mocks != null) {
+            mocks.close();
+        }
+    }
 
     @Test
     public void testMinusPage() {
