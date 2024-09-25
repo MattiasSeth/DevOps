@@ -6,20 +6,25 @@
 </head>
 <body>
 <div class="mx-auto p-5" style="width: 800px;">
-    <div>
-        <span class="fst-italic p-5">Udda eller jämnt</span>-
-        <span class="fst-italic p-5"><a href="/" class="link-offset-2 link-underline link-underline-opacity-0">Tillbaka</a></span>
-    </div>
-    <div class="mx-auto pt-5" style="width: 600px;">
+    <div class="mx-auto p-5 text-center" style="width: 800px;">
+
+        <h1>Udda eller jämnt</h1>
+        <h2 class="mt-5"><span th:text="${randomInt}"></span></h2>
         <form action="/submitGuess" method="post">
             <input type="hidden" name="randomInt" th:value="${randomInt}" />
-            <span class="fst-italic p-3 border border-info  m-1" th:text="${randomInt}"></span>
-            <button type="submit" name="guess" value="even" class="fst-italic m-4">Udda</button>
-            <button type="submit" name="guess" value="odd" class="fst-italic m-1">Jämnt</button>
+            <button type="submit" name="guess" value="odd" class="btn btn-dark p-3 m-3">Udda</button>
+            <button type="submit" name="guess" value="even" class="btn btn-dark p-3 m-3">Jämnt</button>
         </form>
-    </div>
-    <div th:if="${result != null}">
-        <h2 class="fst-italic p-1">Totalt antal rätt svar: <span th:text="${score}"></span></h2>
+
+        <p>Antal poäng: <span  class="fw-bold" th:text="${score}">Antal poäng: </span></p>
+
+        <a href="/oddOrEven">
+            <button type="submit"  class="btn btn-secondary p-3 m-3">Börja om</button>
+        </a>
+
+        <a href="http://localhost:8080/">
+            <button type="submit"  class="btn btn-secondary p-3 m-3">Till Startsidan</button>
+        </a>
     </div>
 </div>
 </body>
