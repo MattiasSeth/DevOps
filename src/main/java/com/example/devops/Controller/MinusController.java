@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import java.util.*;
 
 @Controller
@@ -26,9 +25,7 @@ public class MinusController {
         List<Integer> shuffledList = plusMinusService.generateAnswers(number1, "-" , number2);
 
         model.addAttribute("num1", number1);
-
         model.addAttribute("num2", number2);
-
         model.addAttribute("answers", shuffledList);
         model.addAttribute("correctAnswer", number1 - number2);
         model.addAttribute("turns", plusMinusService.getTurns());

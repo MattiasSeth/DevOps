@@ -31,10 +31,9 @@ public class PlusController {
         model.addAttribute("correctAnswer", num1 + num2);
         model.addAttribute("turns", plusMinusService.getTurns());
         model.addAttribute("result", plusMinusService.getScore());
+
         return "plus";
-
     }
-
 
     @PostMapping("/checkPlusAnswer")
     public String checkAnswer(@RequestParam("correctAnswer") int correctAnswer,
