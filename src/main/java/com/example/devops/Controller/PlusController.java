@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.*;
 
+@SuppressWarnings("SameReturnValue")
 @Controller
 public class PlusController {
 

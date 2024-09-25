@@ -10,7 +10,7 @@ public class PlusMinusService {
     @Getter
     int score = 0;
     int turns = 0;
-    Set<Integer> answers = new LinkedHashSet<>();
+    final Set<Integer> answers = new LinkedHashSet<>();
     public int randomNum(int x) {
         Random random = new Random();
         return random.nextInt(x) + 1;

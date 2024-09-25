@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.servlet.http.HttpSession;
 
+@SuppressWarnings("SameReturnValue")
 @Controller
 public class EvenOrOddController {
 
