@@ -13,6 +13,6 @@ public class EvenOrOddService {
 
     public int randomInteger() {
         Random random = new Random();
-        return random.nextInt(10000) + 1;
+        return random.nextInt(10) + 1;
     }
 }
