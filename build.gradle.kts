@@ -32,7 +32,12 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    // Togglz dependencies
+    implementation("org.togglz:togglz-core:4.4.0")
+    implementation("org.togglz:togglz-spring-boot-starter:4.4.0")
 }
+
 
 tasks.withType<Test> {
     useJUnitPlatform()

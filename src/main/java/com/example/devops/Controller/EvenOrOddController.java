@@ -1,12 +1,15 @@
 package com.example.devops.Controller;
 
 import com.example.devops.Service.EvenOrOddService;
+import com.example.devops.feature.MyFeatures;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.servlet.http.HttpSession;
+import org.togglz.core.manager.FeatureManager;
 
 @SuppressWarnings("SameReturnValue")
 @Controller
@@ -14,8 +17,12 @@ public class EvenOrOddController {
 
     private final EvenOrOddService evenOrOddService;
 
-    public EvenOrOddController(EvenOrOddService evenOrOddService){
+
+    final FeatureManager featureManager;
+
+    public EvenOrOddController(EvenOrOddService evenOrOddService, FeatureManager featureManager){
         this.evenOrOddService = evenOrOddService;
+        this.featureManager = featureManager;
     }
 
     @GetMapping("/oddOrEven")
@@ -25,7 +32,12 @@ public class EvenOrOddController {
         session.setAttribute("score", 0);
 
         model.addAttribute("score", session.getAttribute("score"));
-        return "oddoreven";
+
+        if (featureManager.isActive(MyFeatures.ODD_EVEN)) {
+            return "oddoreven";
+        } else {
+            return "evenOddOff";
+        }
     }
 
     @PostMapping("/submitGuess")
