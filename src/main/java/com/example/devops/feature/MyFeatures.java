@@ -7,5 +7,7 @@ public enum MyFeatures implements Feature {
 
     @Label("Odd or even")
     ODD_EVEN,
+    @Label("Set random number")
+    SET_RANDOM_NUMBER,
 
 }
