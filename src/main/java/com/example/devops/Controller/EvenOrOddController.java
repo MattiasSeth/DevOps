@@ -2,7 +2,6 @@ package com.example.devops.Controller;
 
 import com.example.devops.Service.EvenOrOddService;
 import com.example.devops.feature.MyFeatures;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +16,6 @@ public class EvenOrOddController {
 
     private final EvenOrOddService evenOrOddService;
 
-
     final FeatureManager featureManager;
 
     public EvenOrOddController(EvenOrOddService evenOrOddService, FeatureManager featureManager){
@@ -30,7 +28,6 @@ public class EvenOrOddController {
         int randomInt = evenOrOddService.randomInteger();
         model.addAttribute("randomInt", randomInt);
         session.setAttribute("score", 0);
-
         model.addAttribute("score", session.getAttribute("score"));
 
         if (featureManager.isActive(MyFeatures.ODD_EVEN)) {
@@ -39,6 +36,7 @@ public class EvenOrOddController {
             return "evenOddOff";
         }
     }
+
 
     @PostMapping("/submitGuess")
     public String submitGuess(@RequestParam("guess") String guess,

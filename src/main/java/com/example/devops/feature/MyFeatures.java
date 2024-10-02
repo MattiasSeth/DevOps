@@ -9,5 +9,4 @@ public enum MyFeatures implements Feature {
     ODD_EVEN,
     @Label("Set random number")
     SET_RANDOM_NUMBER,
-
 }
