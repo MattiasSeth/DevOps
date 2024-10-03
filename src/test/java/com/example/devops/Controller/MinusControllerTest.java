@@ -66,9 +66,7 @@ class MinusControllerTest {
     public void testCheckAnswer() {
 
         when(plusMinusService.getScore()).thenReturn(1);
-
         String viewName = minusController.checkAnswer(5, 5, redirectAttributes);
-
         verify(plusMinusService).incrementScore();
         verify(redirectAttributes).addFlashAttribute("result", 1);
 
